@@ -17,7 +17,23 @@
 
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="../ckeditor/ckeditor.js"></script>
 
+<script type="text/javascript">
+      function confirmar(){
+        // só permitirá o envio se o usuário responder OK
+        var resposta = window.confirm("Deseja mesmo" + 
+                       " excluir este registro?");
+        if(resposta)
+          return true;
+        else
+          return false; 
+      }
+   
+    </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -61,8 +77,8 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <a class="nav-link" href="CAD_index.php">
+          <i class="fas fa-fw fa-user"></i>
           <span>Candidatos</span></a>
       </li>
 
