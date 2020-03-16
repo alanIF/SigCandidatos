@@ -27,6 +27,7 @@ class CandidatoDAO {
                    $candidatos[$i]['data_nascimento'] = $row['data_nascimento'];
                    $candidatos[$i]['rede_social'] = $row['rede_social'];
                    $candidatos[$i]['foto'] = $row['foto'];
+                   $candidatos[$i]['visitas'] = $row['visitas'];
                  
                     $i++;
                 }

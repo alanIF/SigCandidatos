@@ -16,7 +16,7 @@
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-info">Candidatos</h6>
+                  <h6 class="m-0 font-weight-bold text-info">Propostas dos Candidatos</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -24,13 +24,10 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Nome</th>
-                      <th>Foto</th>
+                      <th>Candidato</th>
+                      <th>Título</th>
                       <th>Descrição</th>
-                      <th>Partido</th>
-                      <th>Data de Nascimento</th>
-                      <th>Redes Sociais</th>
-                                         <th>Visualizações</th>
+                 
 
                       <th>Ações</th>
                     </tr>
@@ -38,8 +35,8 @@
                  
                   <tbody>
                     <?php 
-                        require_once '../Controller/CandidatoController.php';
-                        $objControl = new CandidatoController();
+                        require_once '../Controller/PropostaController.php';
+                        $objControl = new PropostaController();
                         $dados=$objControl->listar();
                         $tamanho = count($dados);
                         if ($tamanho > 0) {
@@ -47,25 +44,21 @@
                                  echo "<tr>";
                                             echo"<td>" . $dados[$i]['id'] . "</td>";
 
-                                            echo"<td>" . $dados[$i]['nome'] . "</td>";
-                                            echo"<td>" . $dados[$i]['foto'] . "</td>";
+                                            echo"<td>" . $dados[$i]['candidato'] . "</td>";
+                                            echo"<td>" . $dados[$i]['titulo'] . "</td>";
                                             echo"<td>" . $dados[$i]['descricao'] . "</td>";
-                                            echo"<td>" . $dados[$i]['partido'] . "</td>";
-                                            echo"<td>" . $dados[$i]['data_nascimento'] . "</td>";
-                                            echo"<td>" . $dados[$i]['rede_social'] . "</td>";
-                                            echo"<td>" . $dados[$i]['visitas'] . "</td>";
-
-                                            echo"<td>  <a href='CAD_editar.php?id=" . $dados[$i]['id'] . "'><i class='fas fa-file' title='Editar Produto'  aria-hidden='true'></i></a>
-                                      <a onclick='return confirmar();' href='CAD_excluir.php?id=" . $dados[$i]['id'] . "'><i class='fa fa-trash' title='Excluir Candidato'  aria-hidden='true'></i></a></td></tr>";
+                                            
+                                            echo"<td>  <a href='PRO_editar.php?id=" . $dados[$i]['id'] . "'><i class='fas fa-file' title='Editar Proposta'  aria-hidden='true'></i></a>
+                                      <a onclick='return confirmar();' href='PRO_excluir.php?id=" . $dados[$i]['id'] . "'><i class='fa fa-trash' title='Excluir Proposta'  aria-hidden='true'></i></a></td></tr>";
                             }
                         
                         }else{
-                            echo "<tr><td colspan='8'> Você não cadastrou  nenhum candidato ainda, cadastre um candidato!</td>";
+                            echo "<tr><td colspan='8'> Você não cadastrou  nenhuma proposta ainda, cadastre uma proposta!</td>";
                         }
                     ?>
                         <tfoot>
                                     <tr>
-                                        <th colspan="8"> <a href="CAD_cadastrar.php"><i class="fa fa-plus-square" aria-hidden="true"></i></a></th>
+                                        <th colspan="8"> <a href="PRO_cadastrar.php"><i class="fa fa-plus-square" aria-hidden="true"></i></a></th>
                                       
                                       
                                     </tr>
@@ -99,3 +92,4 @@
     <?php
    include './foot.php';
 ?>
+

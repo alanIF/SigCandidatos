@@ -3,17 +3,17 @@
       
 
     if (isset( $_GET['id'])) {
-        require_once '../Controller/CandidatoController.php';
+        require_once '../Controller/PropostaController.php';
 
          $id=(int)$_GET['id'];
-        $objControl = new CandidatoController();
-       $mensagem=  $objControl->excluirCandidato($id);
+        $objControl = new PropostaController();
+       $mensagem=  $objControl->excluirProposta($id);
          echo "<script language='javascript' type='text/javascript'>"
             . "alert('".$mensagem."');";
 
                 echo "</script>";
                 echo "<script language='javascript' type='text/javascript'>
-window.location.href = 'CAD_index.php';
+window.location.href = 'PRO_index.php';
 </script>";
            
 
