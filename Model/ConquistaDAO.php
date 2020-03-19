@@ -32,6 +32,21 @@ class ConquistaDAO {
        $conn->close();
        return $conquista;
     }
+     function qtd(){
+        require_once 'connect.php';
+        $conn = F_conect();
+        $result = mysqli_query($conn, "Select count(id) qtd from conquista");
+        $i = 0;
+        if (mysqli_num_rows($result)) {
+            while ($row = $result->fetch_assoc()) {
+                   $qtd = $row['qtd'];
+                 
+                    $i++;
+                }
+        }
+       $conn->close();
+       return $qtd;
+    }
     function getConquista($id){
         require_once 'connect.php';
         $conn = F_conect();
