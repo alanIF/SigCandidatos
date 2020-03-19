@@ -12,5 +12,14 @@
  * @author PICHAU
  */
 class DenunciaController {
-    //put your code here
+    public function listar(){
+        require_once '../Model/DenunciaDAO.php';
+        $denuncias = new DenunciaDAO();
+        return $denuncias->listar();
+    }
+     public function enviar($id){
+        require_once '../Model/DenunciaDAO.php';
+        $denuncias = new DenunciaDAO();
+        return $denuncias->enviar($id);
+    }
 }

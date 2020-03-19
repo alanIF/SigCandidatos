@@ -30,6 +30,15 @@
         else
           return false; 
       }
+   function enviar(){
+        // só permitirá o envio se o usuário responder OK
+        var resposta = window.confirm("Deseja mesmo" + 
+                       " enviar esta denúncia?");
+        if(resposta)
+          return true;
+        else
+          return false; 
+      }
    
     </script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
