@@ -23,7 +23,7 @@ function logar($email, $senha) {
         // teste - certo
 
         while ($row = $result->fetch_assoc()) {
-            $id_usuario = $row["id"];
+            $id = $row["id"];
             $nome=$row['nome'];
         }
         //fim teste

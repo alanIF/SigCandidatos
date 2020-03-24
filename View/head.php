@@ -1,4 +1,14 @@
+ <?php
+                require_once '../Controller/UsuarioController.php';
+                $objControl = new UsuarioController();
+
+                $objControl->verificarlogin();
+
+        
+    ?>
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -140,14 +150,7 @@
           
 
             <div class="topbar-divider d-none d-sm-block"></div>
-            <?php
-                require_once '../Controller/UsuarioController.php';
-                $objControl = new UsuarioController();
-
-                $objControl->verificarlogin();
-
-        
-    ?>
+           
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
