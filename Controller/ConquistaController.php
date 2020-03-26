@@ -17,6 +17,11 @@ class ConquistaController {
         $conquistas = new ConquistaDAO();
         return $conquistas->listar();
     }
+     public function listar_c($id){
+        require_once '../Model/ConquistaDAO.php';
+        $conquistas = new ConquistaDAO();
+        return $conquistas->listar_c($id);
+    }
       public function excluirConquista($id){
         require_once ('../Model/ConquistaDAO.php');
        $conquistas= new ConquistaDAO();

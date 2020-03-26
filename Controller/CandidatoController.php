@@ -23,10 +23,10 @@ class CandidatoController {
         return $candidato->delete($id);        
         
     }
-    public function atualizarCandidato($nome, $foto, $descricao, $data_nascimento,$partido, $rede_social, $id){
+    public function atualizarCandidato($nome,$cargo, $foto, $descricao, $data_nascimento,$partido, $rede_social, $id){
         require_once ('../Model/CandidatoDAO.php');
         $candidatos = new CandidatoDAO();
-        $mensagem= $candidatos->editar($nome, $foto, $descricao, $data_nascimento,$partido, $rede_social, $id);
+        $mensagem= $candidatos->editar($nome, $cargo, $foto, $descricao, $data_nascimento,$partido, $rede_social, $id);
         return $mensagem;
     }
     public function getCandidato($id){
@@ -35,9 +35,9 @@ class CandidatoController {
         return $candidato->getCandidato($id);
     }
 
-    public function cadastrarCandidato($nome, $foto, $descricao, $data_nascimento,$partido, $rede_social){
+    public function cadastrarCandidato($nome, $cargo, $foto, $descricao, $data_nascimento,$partido, $rede_social){
         require_once '../Model/CandidatoDAO.php';
         $candidatos = new CandidatoDAO();
-        return   $candidatos->cadastrar($nome, $foto, $descricao, $data_nascimento,$partido, $rede_social);    
+        return   $candidatos->cadastrar($nome,$cargo, $foto, $descricao, $data_nascimento,$partido, $rede_social);    
     }
 }

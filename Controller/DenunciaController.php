@@ -22,4 +22,9 @@ class DenunciaController {
         $denuncias = new DenunciaDAO();
         return $denuncias->enviar($id);
     }
+    public function cadastrarDenuncia($nome_reclamante, $nome_reclamado, $descricao){
+        require_once '../Model/DenunciaDAO.php';
+        $denuncias = new DenunciaDAO();
+        return $denuncias->cadastrar($nome_reclamante, $nome_reclamado, $descricao);
+    }
 }

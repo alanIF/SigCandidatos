@@ -14,61 +14,106 @@
 
           <!-- Content Row -->
           <div class="row">
- <div class="col-lg-6">
-                    <?php
-                        require_once '../Controller/CandidatoController.php';
+                <div class="col-lg-12 mb-6">
+              
+              <!-- Project Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-info">Candidatos a Prefeito</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                <table class="table" id="dataTable" border="0" width="100%" cellspacing="0">
+                 
+                 
+                  <tbody>
+                    <?php 
+                           require_once '../Controller/CandidatoController.php';
                         $objControl2 = new CandidatoController();
                         $dados=$objControl2->listar();
                         
                         $tamanho = count($dados);
-                          
+                         echo "<tr>"; 
                         if ($tamanho > 0) {
                                  
                              $controle=0;
 
                             for ($i = 0; $i < $tamanho; $i++) {
-                                
-                                    echo '<div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">'.$dados[$i]['nome'].'</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="candidato.php?id='.$dados[$i]['id'].'">Visualizar</a>
-                     
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="card-body">
-                '.$dados[$i]["foto"].'
-                <p class="text-primary text-bold"> Descrição: '.$dados[$i]["descricao"].'</p>
-                <p class="text-primary text-bold"> Partido: '.$dados[$i]["partido"].'</p>
-               '.$dados[$i]["rede_social"].'
-                <p class="text-primary text-bold"> Número de Visitas: '.$dados[$i]["visitas"].'</p>
+                                if( strcmp($dados[$i]["cargo"],"Prefeito")==0){
 
+                                                                    echo "<td class='text-center    '><a href='candidato.php?id=".$dados[$i]["id"]."'>".$dados[$i]["foto"]."</a></td>";
 
-                </div>
-              </div>';
-                                    if($controle==1){
-                                        $controle=0;
-                                        echo "</div>";
-                                        echo '<div class="col-lg-6">';
-                                    }else{
-                                        $controle++;    
-                                    }
-                           
+                                                                    if($controle==1){
+                                                                        $controle=0;
+                                                                        echo "</tr>";
+                                                                        echo '<tr>';
+                                                                    }else{
+                                                                        $controle++;    
+                                                                    }
+                                }
                                                              
                             }
 
                         }
                     ?>
-                   
-      
- </div>
+                       
+                  </tbody>
+                </table>
+              </div>    
+                </div>
+              </div>
+
+            
+
+            </div>
+           <div class="col-lg-12 mb-6">
+              
+              <!-- Project Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-info">Candidatos a Vereador  </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                <table class="table" id="dataTable" border="0" width="100%" cellspacing="0">
+                 
+                 
+                  <tbody>
+                    <?php 
+                         
+                         echo "<tr>"; 
+                        if ($tamanho > 0) {
+                                 
+                             $controle=0;
+
+                            for ($i = 0; $i < $tamanho; $i++) {
+                                                                if( strcmp($dados[$i]["cargo"],"Vereador")==0){
+
+                                    echo "<td class='text-center    '><a href='candidato.php?id=".$dados[$i]["id"]."'>".$dados[$i]["foto"]."</a></td>";
+                          
+                                    if($controle==2){
+                                        $controle=0;
+                                        echo "</tr>";
+                                        echo '<tr>';
+                                    }else{
+                                        $controle++;    
+                                    }
+                           
+                                                                }                       
+                            }
+
+                        }
+                    ?>
+                       
+                  </tbody>
+                </table>
+              </div>    
+                </div>
+              </div>
+
+            
+
+            </div>
            
 
               

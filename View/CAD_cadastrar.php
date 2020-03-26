@@ -23,6 +23,14 @@
                           <div class="form-group">
                     <input type="text" name="nome" class="form-control form-control-user" id="exampleInputEmail" placeholder="Nome" required="">
                     </div>
+                         <div class="form-group">
+
+                             <select class="form-control" name="cargo">
+                          <option value="Vereador">Vereador</option>
+                          <option value="Prefeito">Prefeito</option>
+                         
+                        </select>
+                         </div>
                            <div class="form-group">
                                <textarea class="ckeditor" name="foto" placeholder="Foto" required=""> Foto </textarea>
                     </div>
@@ -48,7 +56,7 @@
                     if (isset($_POST["botao"])) {
                           require_once '../Controller/CandidatoController.php';
                         $objControl = new CandidatoController();
-                        $mensagem = $objControl->cadastrarCandidato($_POST["nome"], $_POST["foto"], $_POST["descricao"], $_POST["data_nascimento"],$_POST["partido"], $_POST["rede_social"]);
+                        $mensagem = $objControl->cadastrarCandidato($_POST["nome"],$_POST["cargo"], $_POST["foto"], $_POST["descricao"], $_POST["data_nascimento"],$_POST["partido"], $_POST["rede_social"]);
                                 echo "<script language='javascript' type='text/javascript'>"
                                   . "alert('".$mensagem."');";
                                 echo "</script>";

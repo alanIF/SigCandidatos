@@ -22,6 +22,8 @@ class CandidatoDAO {
             while ($row = $result->fetch_assoc()) {
                    $candidatos[$i]['id'] = $row['id'];
                    $candidatos[$i]['nome'] = $row['nome'];
+                   $candidatos[$i]['cargo'] = $row['cargo'];
+
                    $candidatos[$i]['descricao'] = $row['descricao'];
                    $candidatos[$i]['partido'] = $row['partido'];
                    $candidatos[$i]['data_nascimento'] = $row['data_nascimento'];
@@ -60,6 +62,9 @@ class CandidatoDAO {
             while ($row = $result->fetch_assoc()) {
                    $candidatos[$i]['id'] = $row['id'];
                    $candidatos[$i]['nome'] = $row['nome'];
+                   
+                   $candidatos[$i]['cargo'] = $row['cargo'];
+
                    $candidatos[$i]['descricao'] = $row['descricao'];
                    $candidatos[$i]['partido'] = $row['partido'];
                    $candidatos[$i]['data_nascimento'] = $row['data_nascimento'];
@@ -72,12 +77,12 @@ class CandidatoDAO {
        $conn->close();
        return $candidatos;
     }
-    function cadastrar($nome, $foto, $descricao, $data_nascimento,$partido, $rede_social){
+    function cadastrar($nome,$cargo, $foto, $descricao, $data_nascimento,$partido, $rede_social){
         require_once 'connect.php';
 
         $conn = F_conect();
-        $sql = "INSERT INTO candidato(nome, foto, descricao, data_nascimento, partido, rede_social)
-                VALUES('" . $nome . "','" . $foto ."' , '".$descricao."', '".$data_nascimento."' , '".$partido."' , '".$rede_social."' )";
+        $sql = "INSERT INTO candidato(nome,cargo,foto, descricao, data_nascimento, partido, rede_social)
+                VALUES('" . $nome . "' , '".$cargo."','" . $foto ."' , '".$descricao."', '".$data_nascimento."' , '".$partido."' , '".$rede_social."' )";
         if ($conn->query($sql) == TRUE) {
             return "Candidato cadastrado com sucesso";
             
@@ -88,10 +93,10 @@ class CandidatoDAO {
 
         $conn->close();
     }
-    function editar($nome, $foto, $descricao, $data_nascimento,$partido, $rede_social, $id){
+    function editar($nome, $cargo, $foto, $descricao, $data_nascimento,$partido, $rede_social, $id){
         require_once 'connect.php';
         $conn = F_conect();
-        $sql = "update candidato set nome='".$nome."' , foto='".$foto."' , descricao='".$descricao."', data_nascimento='".$data_nascimento."', partido='".$partido."', rede_social='".$rede_social."'      where id='".$id."'";
+        $sql = "update candidato set nome='".$nome."' , cargo='".$cargo."' , foto='".$foto."' , descricao='".$descricao."', data_nascimento='".$data_nascimento."', partido='".$partido."', rede_social='".$rede_social."'      where id='".$id."'";
         if ($conn->query($sql) == TRUE) {
                         return "Candidato atualizado com sucesso";
 

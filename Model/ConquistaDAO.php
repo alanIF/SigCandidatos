@@ -32,6 +32,26 @@ class ConquistaDAO {
        $conn->close();
        return $conquista;
     }
+    function listar_c($id){
+        require_once 'connect.php';
+        $conn = F_conect();
+        $result = mysqli_query($conn, "Select p.id id , c.nome candidato, p.titulo titulo, p.descricao descricao from conquista p, candidato c where c.id=p.id_candidato and p.id_candidato='".$id."'");
+        $i = 0;
+        $conquista= array();
+        if (mysqli_num_rows($result)) {
+            while ($row = $result->fetch_assoc()) {
+                   $conquista[$i]['id'] = $row['id'];
+                    $conquista[$i]['candidato'] = $row['candidato'];
+                   $conquista[$i]['descricao'] = $row['descricao'];
+                   $conquista[$i]['titulo'] = $row['titulo'];
+                
+                 
+                    $i++;
+                }
+        }
+       $conn->close();
+       return $conquista;
+    }
      function qtd(){
         require_once 'connect.php';
         $conn = F_conect();

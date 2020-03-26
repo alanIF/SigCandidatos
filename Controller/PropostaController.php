@@ -17,6 +17,11 @@ class PropostaController {
         $propostas = new PropostaDAO();
         return $propostas->listar();
     }
+    public function listar_c($id){
+        require_once '../Model/PropostaDAO.php';
+        $propostas = new PropostaDAO();
+        return $propostas->listar_c($id);
+    }
       public function excluirProposta($id){
         require_once ('../Model/PropostaDAO.php');
         $propostas = new PropostaDAO();

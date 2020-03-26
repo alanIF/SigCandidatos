@@ -98,7 +98,7 @@
       <li class="nav-item">
         <a class="nav-link" href="DEN_cadastrar.php">
           <i class="fas fa-fw fa-archive"></i>
-          <span>Denúnciar</span></a>
+          <span>Denúncias</span></a>
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

@@ -25,6 +25,7 @@
                     <tr>
                       <th>#</th>
                       <th>Nome</th>
+                      <th>Cargo</th>
                       <th>Foto</th>
                       <th>Descrição</th>
                       <th>Partido</th>
@@ -48,10 +49,14 @@
                                             echo"<td>" . $dados[$i]['id'] . "</td>";
 
                                             echo"<td>" . $dados[$i]['nome'] . "</td>";
+                                            echo"<td>" . $dados[$i]['cargo'] . "</td>";
+
                                             echo"<td>" . $dados[$i]['foto'] . "</td>";
                                             echo"<td>" . $dados[$i]['descricao'] . "</td>";
                                             echo"<td>" . $dados[$i]['partido'] . "</td>";
-                                            echo"<td>" . $dados[$i]['data_nascimento'] . "</td>";
+                                            $data = date("d/m/Y", strtotime($dados[$i]['data_nascimento']));
+
+                                            echo"<td>" .$data  . "</td>";
                                             echo"<td>" . $dados[$i]['rede_social'] . "</td>";
                                             echo"<td>" . $dados[$i]['visitas'] . "</td>";
 

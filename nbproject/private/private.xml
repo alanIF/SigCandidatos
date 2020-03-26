@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/SigCandidatos/Model/ConquistaDAO.php</file>
-            <file>file:/C:/xampp/htdocs/SigCandidatos/View/CON_cadastrar.php</file>
-            <file>file:/C:/xampp/htdocs/SigCandidatos/View/CON_index.php</file>
-            <file>file:/C:/xampp/htdocs/SigCandidatos/Controller/ConquistaController.php</file>
-            <file>file:/C:/xampp/htdocs/SigCandidatos/View/CON_excluir.php</file>
-            <file>file:/C:/xampp/htdocs/SigCandidatos/View/CON_editar.php</file>
+            <file>file:/C:/xampp/htdocs/SigCandidatos/Model/CandidatoDAO.php</file>
+            <file>file:/C:/xampp/htdocs/SigCandidatos/Portal/index.php</file>
+            <file>file:/C:/xampp/htdocs/SigCandidatos/Controller/CandidatoController.php</file>
         </group>
     </open-files>
 </project-private>
