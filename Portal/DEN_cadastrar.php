@@ -29,8 +29,21 @@
                     <div class="form-group">
                                <textarea class="ckeditor" name="descricao" placeholder="" required=""> Motivo </textarea>
                     </div>
-                       
-                
+                       <?php 
+                             $numero =5;
+                             $numero2 =5;
+                             $resultado= $numero+$numero2;
+                             $resultado_texto="".$resultado;    
+                       ?>
+                         
+                                          <div class="form-group row">
+                                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                    <input type="text" name="equacao" class="form-control form-control-user" id="exampleInputEmail" placeholder="" value="<?php echo $numero."  +  ".$numero2." = ";?>" disabled="">
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <input type="number" name="resultado" class="form-control form-control-user" id="exampleInputEmail" placeholder="">
+                                                                </div>
+                                          </div>
                   <button type="submit" class="btn btn-primary btn-user btn-block" name="botao">Enviar</button>
                   <a href="index.php" class="btn btn-warning btn-user btn-block">Voltar</a>
                 
@@ -38,14 +51,20 @@
                  <?php
                     
                     if (isset($_POST["botao"])) {
-                          require_once '../Controller/DenunciaController.php';
+                        require_once '../Controller/DenunciaController.php';
+                        if(strcmp($resultado_texto,$_POST['resultado'])==0){
                         $objControl = new DenunciaController();
                         $mensagem = $objControl->cadastrarDenuncia($_POST["nome_reclamante"],$_POST["nome_reclamado"], $_POST["descricao"]);
                                 echo "<script language='javascript' type='text/javascript'>"
                                   . "alert('".$mensagem."');";
                                 echo "</script>";
                             
-                      
+                        }else{
+                            echo "<script language='javascript' type='text/javascript'>"
+                                  . "alert('Erro! A equação está incorreta!');";
+                                echo "</script>";
+                            
+                        }
                     }
                     ?>   
                 </div>

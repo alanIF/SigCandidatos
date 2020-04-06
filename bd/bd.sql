@@ -15,7 +15,10 @@ create table candidato(
 	descricao text, 
 	partido text,
 	data_nascimento text,
-	rede_social text, 
+	rede_social text,   
+        foto text,
+        visitas int,    
+        cargo text,
 	primary key(id)
 ); 
 
@@ -44,6 +47,7 @@ create table denuncia(
 	nome_denuciado text not null, 
 	descricao text, 
 	data_denuncia text,
+        situacao int,
 	primary key(id)
 
 );
