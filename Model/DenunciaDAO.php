@@ -74,7 +74,7 @@ class DenunciaDAO {
         require_once 'connect.php';
 
         $conn = F_conect();
-        $data_a=date('d/m/y') ;
+        $data_a=date('d/m/yy') ;
         $sql = "INSERT INTO denuncia(nome_reclamante,nome_denuciado, descricao, data_denuncia, situacao)
                 VALUES('" . $nome_reclamante . "' , '".$nome_reclamado."' ,'" . $descricao ."' , '".$data_a."', '0')";
         if ($conn->query($sql) == TRUE) {

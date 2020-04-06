@@ -1,5 +1,6 @@
 <?php
     include './head.php';
+    
     if (isset($_GET['id'])){
         require_once '../Controller/CandidatoController.php';
         $objControl = new CandidatoController();
@@ -13,6 +14,22 @@
         
     }
 ?>
+ 
+<script type="text/javascript">
+
+// função para desabilitar a tecla F5.
+window.onkeydown = function (e) {
+if (e.keyCode === 116)  {
+e.keyCode = 0;
+e.returnValue = false;
+return false;
+}
+
+}
+
+
+</script>
+  
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -38,6 +55,16 @@
                     <p class="text-left""><b> Partido : <?php echo $candidato[0]["partido"]; ?></b></p>
                     <p class="text-left""><b> Data de Nascimento : <?php echo date("d/m/Y", strtotime($candidato[0]['data_nascimento'])); ?></b></p>
                     <div class="text-left"><?php echo $candidato[0]["rede_social"];?> </div>
+                    <?php  
+                    
+                           
+                            $visitas=$candidato[0]["visitas"]+1;
+                            $candidato= $objControl->setVisitas($id, $visitas);                            
+                        
+                    
+                    ?>
+                    <div class="text-left">Numero de Visitas: <?php echo $visitas;?> </div>
+                    
     </div>
     <div class="col-sm-4">
         <h3 class="text-center text-info">Propostas</h3>
@@ -118,6 +145,10 @@
               </div> 
                            
                        </div>
+      
+
+  
+    
   </div>
                   
                     

@@ -70,7 +70,8 @@ class CandidatoDAO {
                    $candidatos[$i]['data_nascimento'] = $row['data_nascimento'];
                    $candidatos[$i]['rede_social'] = $row['rede_social'];
                    $candidatos[$i]['foto'] = $row['foto'];
-                  
+                                     $candidatos[$i]['visitas'] = $row['visitas'];
+
                     $i++;
                 }
         }
@@ -89,6 +90,20 @@ class CandidatoDAO {
 
         } else {
             return  "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        $conn->close();
+    }
+     function setVisitas($id, $visitas){
+        require_once 'connect.php';
+        $conn = F_conect();
+        $sql = "update candidato set visitas='".$visitas."'      where id='".$id."'";
+        if ($conn->query($sql) == TRUE) {
+                        return "Visita atualizada com sucesso";
+
+                
+                            } else {
+                                return "Error: " . $sql . "<br>" . $conn->error;
         }
 
         $conn->close();

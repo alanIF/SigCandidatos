@@ -34,7 +34,11 @@ class CandidatoController {
         $candidato = new CandidatoDAO();
         return $candidato->getCandidato($id);
     }
-
+    public function setVisitas($id, $visitas){
+           require_once '../Model/CandidatoDAO.php';
+           $candidato = new CandidatoDAO();
+           return $candidato->setVisitas($id, $visitas);
+       }
     public function cadastrarCandidato($nome, $cargo, $foto, $descricao, $data_nascimento,$partido, $rede_social){
         require_once '../Model/CandidatoDAO.php';
         $candidatos = new CandidatoDAO();
