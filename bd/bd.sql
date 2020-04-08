@@ -27,7 +27,7 @@ create table proposta(
 	id int auto_increment not null,
 	id_candidato int not null,
 	titulo text not null,
-	descricao int not null,
+	descricao text not null,
 	primary key(id),
 	foreign key(id_candidato) references candidato(id)
 );
@@ -36,7 +36,7 @@ create table conquista(
 	id int auto_increment not null,
 	id_candidato int not null,
 	titulo text not null,
-	descricao int not null,
+	descricao text not null,
 	primary key(id),
 	foreign key(id_candidato) references candidato(id)
 );
